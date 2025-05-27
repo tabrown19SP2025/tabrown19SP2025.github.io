@@ -1,18 +1,17 @@
 ```mermaid
 sequenceDiagram
-participant Attacker
-participant BotNet
-participant WebServer
-participant Firewall
+    participant Attacker
+    participant BotNet
+    participant Firewall
+    participant WebServer
 
-
-    Attacker->>BotNet: Command bots to begin DDoS
-    BotNet->>WebServer: Flood with HTTP requests
-    WebServer->>Firewall: Request overload alert
-    Firewall->>WebServer: Analyze traffic patterns
-    Firewall->>BotNet: Identify IPs and block traffic
-    BotNet->>WebServer: Continue request flood
-    Firewall-->>Attacker: Traceback attempt (optional)
-    Firewall->>WebServer: Filtered traffic allowed
-    WebServer-->>Legit Users: Partial or full service restored
-```
+    Attacker->>BotNet: Sends attack command to bots
+    BotNet->>WebServer: Begins sending large volumes of traffic
+    WebServer->>Firewall: Detects overload and alerts firewall
+    Firewall->>Firewall: Analyzes incoming traffic patterns
+    Firewall-->>WebServer: Begins filtering suspicious traffic
+    Firewall->>BotNet: Blocks known bot IP addresses
+    BotNet->>WebServer: Continues DDoS with rotating IPs
+    Firewall->>Firewall: Applies rate limiting and behavioral filtering
+    Firewall-->>WebServer: Allows filtered legitimate traffic
+    WebServer-->>Users: Attempts to restore access to valid users
