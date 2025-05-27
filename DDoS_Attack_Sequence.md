@@ -1,8 +1,10 @@
+```mermaid
 sequenceDiagram
-    participant Attacker
-    participant BotNet
-    participant Firewall
-    participant WebServer
+participant Attacker
+participant BotNet
+participant WebServer
+participant Firewall
+
 
     Attacker->>BotNet: Command bots to begin DDoS
     BotNet->>WebServer: Flood with HTTP requests
@@ -13,3 +15,4 @@ sequenceDiagram
     Firewall-->>Attacker: Traceback attempt (optional)
     Firewall->>WebServer: Filtered traffic allowed
     WebServer-->>Legit Users: Partial or full service restored
+```
