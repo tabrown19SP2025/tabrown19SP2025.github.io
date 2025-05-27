@@ -6,10 +6,10 @@
 
 Hey! I'm currently studying Web Design and UX Design. When I’m not working on creative projects, I love:
 
-- Listening to music (especially metal and alternative rock 🤘)
+- Listening to music (especially metal and alternative rock )
 - Hanging out with my friends and having good times
-- Exploring nature and seeing cool, beautiful places 🌲🌄
-- Spending time with cats — they're the best companions 🐱
+- Exploring nature and seeing cool, beautiful places 
+- Spending time with cats — they're the best companions 
 
 ## Websites I Recommend
 
