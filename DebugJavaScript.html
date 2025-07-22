@@ -28,17 +28,26 @@
 
     <script>
         function calculateMortgage() {
-            const principal = document.getElementById("principal").value;
-            const rate = document.getElementById("rate").value / 100;
-            const years = document.getElementById("years").value;
+            const principal = parseFloat(document.getElementById("principal").value);
+            const rate = parseFloat(document.getElementById("rate").value) / 100;
+            const years = parseInt(document.getElementById("years").value);
 
-            if (!rate) {
-                document.getElementById("result").innerText = "Interest rate cannot be zero.";
+            if (isNaN(principal) || isNaN(rate) || isNaN(years)) {
+                document.getElementById("result").innerText = "Please enter valid numbers in all fields.";
                 return;
             }
 
-            const monthlyRate = Math.pow(1 + rate, years * 12);
-            const monthlyPayment = (principal * rate * monthlyRate) / (monthlyRate - 1);
+            if (rate === 0) {
+                const monthlyPayment = principal / (years * 12);
+                document.getElementById("result").innerText = `Your monthly payment is $${monthlyPayment.toFixed(2)} (0% interest).`;
+                return;
+            }
+
+            const monthlyRate = rate / 12;
+            const numPayments = years * 12;
+            const factor = Math.pow(1 + monthlyRate, numPayments);
+            const monthlyPayment = (principal * monthlyRate * factor) / (factor - 1);
+
             document.getElementById("result").innerText = `Your monthly payment is $${monthlyPayment.toFixed(2)}`;
         }
     </script>
